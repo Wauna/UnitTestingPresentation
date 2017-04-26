@@ -6,14 +6,17 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UnitTestMVCApp;
 using UnitTestMVCApp.Controllers;
+using System.Diagnostics.CodeAnalysis;
+
 
 namespace UnitTestMVCApp.Tests.Controllers
 {
+[ExcludeFromCodeCoverage]    
     [TestClass]
     public class HomeControllerTest
     {
         [TestMethod]
-        public void Index()
+        public void DisplayIndex()
         {
             // Arrange
             HomeController controller = new HomeController();
@@ -26,7 +29,7 @@ namespace UnitTestMVCApp.Tests.Controllers
         }
 
         [TestMethod]
-        public void About()
+        public void DisplayAbout()
         {
             // Arrange
             HomeController controller = new HomeController();
@@ -39,7 +42,7 @@ namespace UnitTestMVCApp.Tests.Controllers
         }
 
         [TestMethod]
-        public void Contact()
+        public void DisplayContact()
         {
             // Arrange
             HomeController controller = new HomeController();
@@ -50,5 +53,22 @@ namespace UnitTestMVCApp.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
         }
+
+
+        [TestMethod]
+        public void NavigateToSubscriber()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+
+            // Act
+            ViewResult result = controller.Index() as ViewResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+
+
     }
 }
