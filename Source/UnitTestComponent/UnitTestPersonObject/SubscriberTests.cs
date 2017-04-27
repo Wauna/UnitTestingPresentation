@@ -7,42 +7,44 @@ namespace UnitTestComponents
     [TestClass]
     public class SubscriberTests
     {
+  
+
         [TestMethod]
         public void SubscriberInstance()
         {
             //ARRANGE
             Subscriber sub = new Subscriber() {
                 Name = new string('a', 35),
-                Email = "Test@Test.com",
+                Email = "test@test.com",
                 Birthday = new DateTime(1977, 1, 1)
             };
 
-
             //ACT
-            //** NOTHING TO DO YET
 
             //ASSERT
-            Assert.AreEqual(sub.Name, new string('a',35));
+          
+            Assert.AreEqual(sub.Name, new string('a', 35));
 
-            Assert.AreEqual(sub.Email, "Test@Test.com");
+            Assert.AreEqual(sub.Email, "test@test.com");
 
-            Assert.AreEqual(sub.Birthday, new DateTime(1977, 1, 1));
+            Assert.AreEqual(sub.Birthday, new DateTime(1977,1,1));
+
 
         }
 
         [TestMethod]
         public void TestOver18() {
+            
             //ARRANGE
             Subscriber sub = new Subscriber()
             {
                 Name = new string('a', 35),
-                Email = "Test@Test.com",
-                Birthday =  DateTime.Now.AddYears(-18)
+                Email = "test@test.com",
+                Birthday = DateTime.Now.AddYears(-18)
             };
-
             //ACT
             bool over18 = sub.IsOver18();
-            
+
             //ASSERT
             Assert.IsTrue(over18);
 
@@ -55,10 +57,9 @@ namespace UnitTestComponents
             Subscriber sub = new Subscriber()
             {
                 Name = new string('a', 35),
-                Email = "Test@Test.com",
-                Birthday = DateTime.Now.AddYears(-3)
+                Email = "test@test.com",
+                Birthday = DateTime.Now.AddYears(-1)
             };
-
             //ACT
             bool over18 = sub.IsOver18();
 

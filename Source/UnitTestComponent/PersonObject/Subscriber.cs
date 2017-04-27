@@ -18,7 +18,7 @@ namespace Components
 
 
         public bool IsOver18() {
-            if (this.Birthday < DateTime.Now.AddYears(-18))
+            if (this.Birthday < DateTime.Now.AddYears(-21))
             {
                 return true;
             }
